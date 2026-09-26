@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Scroller</title>
+    <style>
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#070710;color:#fff}
+
+        /* full viewport scroller container */
+        .scroller-wrap{position:fixed;inset:0;width:100vw;height:100vh;z-index:10;overflow:hidden}
+
+        .scroller{display:flex;flex-direction:row;gap:0;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+
+        .panel{scroll-snap-align:start;flex:0 0 100vw;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;font-size:clamp(48px,10vw,140px);position:relative}
+
+        .panel .num{font-weight:900;text-shadow:0 8px 30px rgba(0,0,0,0.5)}
+
+        /* nav buttons */
+        .nav-btn{position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.36);border:none;color:#fff;width:48px;height:48px;border-radius:10px;display:grid;place-items:center;z-index:30;cursor:pointer}
+        .nav-btn.left{left:12px}
+        .nav-btn.right{right:12px}
+
+        /* page indicator */
+        .page-indicator{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,0.36);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px);color:#fff;font-weight:700;display:flex;gap:8px;align-items:center;z-index:30}
+        .page-indicator .rainbow{background:linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+        /* thumbnails */
+        .thumbs{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:8px;z-index:30}
+        .thumb{width:44px;height:28px;border-radius:6px;border:2px solid rgba(255,255,255,0.18);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+        .thumb.active{outline:3px solid rgba(255,255,255,0.12);transform:scale(1.06)}
+
+        /* active panel content animation */
+        .panel .num{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+        .panel.active .num{opacity:1;transform:translateY(0)}
+
+        @media (max-width:520px){.thumb{width:36px;height:22px}}
+    </style>
+</head>
+<body>
+    <div class="scroller-wrap">
+        <button class="nav-btn left" aria-label="Previous">‹</button>
+        <div class="scroller" tabindex="0">
+            <div class="panel" style="background: linear-gradient(135deg, red, #a80000);">
+                <div class="num">Red</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, orange, #ff7a00);">
+                <div class="num">Orange</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, yellow, #ffd700); color:black;">
+                <div class="num">Yellow</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, green, #0a8a0a);">
+                <div class="num">Green</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, blue, #0b5cff);">
+                <div class="num">Blue</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, indigo, #4b0082);">
+                <div class="num">Indigo</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, violet, #7f00ff);">
+                <div class="num">Violet</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, grey, #9a9a9a);">
+                <div class="num">Grey</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, indigo, #3a0071);">
+                <div class="num">Indigo 2</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, goldenrod, #daa520); color:black;">
+                <div class="num">Goldenrod</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, skyblue, #87ceeb); color:black;">
+                <div class="num">SkyBlue</div>
+            </div>
+            <div class="panel" style="background: linear-gradient(135deg, seagreen, #2e8b57);">
+                <div class="num">SeaGreen</div>
+            </div>
+        </div>
+        <button class="nav-btn right" aria-label="Next">›</button>
+
+        <div class="page-indicator" aria-hidden="false">
+            <span class="rainbow">1</span>
+            <span style="opacity:.6">/</span>
+            <span class="total" style="opacity:.8">0</span>
+        </div>
+
+        <div class="thumbs" aria-hidden="false"></div>
+    </div>
+
+    <script>
+        const scroller = document.querySelector('.scroller');
+        const panels = Array.from(document.querySelectorAll('.panel'));
+        const indicator = document.querySelector('.page-indicator .rainbow');
+        const totalEl = document.querySelector('.page-indicator .total');
+        const btnLeft = document.querySelector('.nav-btn.left');
+        const btnRight = document.querySelector('.nav-btn.right');
+        const thumbsContainer = document.querySelector('.thumbs');
+
+        let current = 0;
+        let autoSlideInterval = 3000;
+        let autoHandle = null;
+
+        totalEl.textContent = panels.length;
+
+        // create thumbnails from panels
+        panels.forEach((p, i) => {
+            const th = document.createElement('button');
+            th.className = 'thumb';
+            // copy background style from panel
+            th.style.background = p.style.background || window.getComputedStyle(p).background;
+            th.setAttribute('aria-label', `Go to ${i+1}`);
+            th.addEventListener('click', () => scrollToIndex(i));
+            thumbsContainer.appendChild(th);
+        });
+
+        const thumbs = Array.from(document.querySelectorAll('.thumb'));
+
+        function scrollToIndex(i){
+            scroller.scrollTo({ left: i * window.innerWidth, behavior: 'smooth' });
+        }
+
+        function setActive(i){
+            current = i;
+            indicator.textContent = i+1;
+            thumbs.forEach((t, idx)=> t.classList.toggle('active', idx===i));
+            panels.forEach((p, idx)=> p.classList.toggle('active', idx===i));
+        }
+
+        // IntersectionObserver to detect active panel
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const idx = panels.indexOf(entry.target);
+                    setActive(idx);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        panels.forEach(p => io.observe(p));
+
+        // navigation
+        btnLeft.addEventListener('click', () => scrollToIndex(Math.max(0, current-1)));
+        btnRight.addEventListener('click', () => scrollToIndex(Math.min(panels.length-1, current+1)));
+
+        // keyboard support
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') btnRight.click();
+            if (e.key === 'ArrowLeft') btnLeft.click();
+        });
+
+        // auto-slide with pause on hover/interaction
+        function startAuto(){
+            stopAuto();
+            autoHandle = setInterval(()=>{
+                const next = (current + 1) % panels.length;
+                scrollToIndex(next);
+            }, autoSlideInterval);
+        }
+        function stopAuto(){ if(autoHandle){ clearInterval(autoHandle); autoHandle = null; } }
+
+        scroller.addEventListener('mouseenter', stopAuto);
+        scroller.addEventListener('mouseleave', startAuto);
+        thumbsContainer.addEventListener('mouseenter', stopAuto);
+        thumbsContainer.addEventListener('mouseleave', startAuto);
+        window.addEventListener('blur', stopAuto);
+        window.addEventListener('focus', startAuto);
+
+        // pause when user manually scrolls
+        let isUserScrolling = false;
+        let userScrollTimeout = null;
+        scroller.addEventListener('wheel', () => { stopAuto(); isUserScrolling=true; clearTimeout(userScrollTimeout); userScrollTimeout=setTimeout(()=>{isUserScrolling=false; startAuto()},1200); }, {passive:true});
+
+        // init
+        window.addEventListener('load', ()=>{ setActive(0); startAuto(); });
+        window.addEventListener('resize', ()=> setTimeout(()=> scrollToIndex(current), 120));
+    </script>
+</body>
+</html>

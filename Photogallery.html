@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Photo Gallery</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 32px;
+			font-family: Arial, sans-serif;
+			background: #f2f4f7;
+		}
+
+		h1 {
+			margin: 0 0 24px;
+			text-align: center;
+			color: #1f2937;
+		}
+
+		.gallery {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 20px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.photo-box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			aspect-ratio: 4 / 3;
+			border-radius: 10px;
+			background: #ffffff;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+		}
+
+		.photo-box p {
+			margin: 0;
+			font-size: 32px;
+			text-align: center;
+			font-weight: bold;
+			color: #374151;
+		}
+
+		@media (max-width: 800px) {
+			.gallery {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 480px) {
+			body {
+				padding: 20px;
+			}
+
+			.gallery {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Photo Gallery</h1>
+
+	<main class="gallery">
+		<div class="photo-box"><p>1</p></div>
+		<div class="photo-box"><p>2</p></div>
+		<div class="photo-box"><p>3</p></div>
+		<div class="photo-box"><p>4</p></div>
+		<div class="photo-box"><p>5</p></div>
+		<div class="photo-box"><p>6</p></div>
+		<div class="photo-box"><p>7</p></div>
+		<div class="photo-box"><p>8</p></div>
+		<div class="photo-box"><p>9</p></div>
+		<div class="photo-box"><p>10</p></div>
+		<div class="photo-box"><p>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Gazette</title>
+    <style>
+        :root {
+            --paper: #f7f2e9;
+            --ink: #1d1d1b;
+            --accent: #a00;
+            --gray: #5a5a55;
+        }
+
+        body {
+            margin: 0;
+            padding: 1rem;
+            background: linear-gradient(180deg, #e9e3d6 0%, #f7f2e9 100%);
+            color: var(--ink);
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .paper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--paper);
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(3rem, 5vw, 5rem);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 0.5rem auto 0;
+            max-width: 720px;
+            color: var(--gray);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .lead-story {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lead-story img {
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.12);
+            display: block;
+        }
+
+        .lead-story .headline {
+            font-size: clamp(2rem, 2.75vw, 3rem);
+            margin: 0 0 0.5rem;
+            line-height: 1.05;
+        }
+
+        .meta {
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 1.5rem;
+        }
+
+        .article {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.12);
+        }
+
+        .article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .article h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .article p {
+            margin: 0 0 0.8rem;
+            line-height: 1.75;
+            color: #2b2a28;
+        }
+
+        .article .byline {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar {
+            border-top: 1px solid rgba(0,0,0,0.12);
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .sidebar-item {
+            flex: 1 1 220px;
+            background: rgba(0,0,0,0.02);
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .sidebar-item h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .sidebar-item p {
+            margin: 0;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .lead-story,
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <header>
+            <h1>Daily Gazette</h1>
+            <p>Morning edition | City & World | Sunday, August 7, 2026</p>
+        </header>
+
+        <section class="lead-story">
+            <div>
+                <p class="meta">Front Page</p>
+                <h2 class="headline">City Council approves new green transit plan to reduce commute times</h2>
+                <p class="byline">By Anna Ramirez</p>
+                <p>In a landmark vote, the council approved a multimodal transit proposal designed to link neighborhoods with faster bus lanes, protected bike routes, and expanded late-night service. Supporters say the changes aim to cut traffic congestion by 20% and provide safer travel for commuters.</p>
+                <p>The plan also includes investments in electric vehicle charging infrastructure and a public awareness campaign centered on sustainable commuting options. Residents will see a phased rollout beginning next spring.</p>
+            </div>
+            <img src="https://via.placeholder.com/460x320.png?text=City+Transit+Update" alt="City transit map">
+        </section>
+
+        <div class="section-grid">
+            <article class="article">
+                <p class="meta">Business</p>
+                <h2>Tech startup launches local hiring program for university graduates</h2>
+                <p class="byline">By Jordan Lee</p>
+                <p>The new initiative will connect students from area colleges with internship opportunities at small businesses. Organizers say it strengthens the regional economy and helps retain talent within the community.</p>
+            </article>
+
+            <article class="article">
+                <p class="meta">Health</p>
+                <h2>Health officials urge residents to stay cool during record summer heat</h2>
+                <p class="byline">By Mei Chen</p>
+                <p>With temperatures forecast to remain above 95°F through the week, local clinics are offering free hydration stations and wellness checks. Officials recommend limiting outdoor activity mid-day and checking on elderly neighbors.</p>
+            </article>
+
+            <article class="article">
+                <p class="meta">Culture</p>
+                <h2>Art festival opens downtown with live music and public murals</h2>
+                <p class="byline">By Malik Thompson</p>
+                <p>The festival features more than 50 artists, food vendors, and a series of performances at the riverfront plaza. Organizers expect thousands of visitors during the three-day celebration.</p>
+            </article>
+
+            <article class="article">
+                <p class="meta">Opinion</p>
+                <h2>Why preserving local parks should remain our top priority</h2>
+                <p class="byline">By Editorial Board</p>
+                <p>Green spaces offer a vital refuge for families, wildlife, and the environment. As development continues, the community must advocate for parks that serve everyone.</p>
+            </article>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <h3>Weather</h3>
+                <p>Sunny, high 97°F, low 74°F. Light breeze from the southwest.</p>
+            </div>
+            <div class="sidebar-item">
+                <h3>Sports</h3>
+                <p>High school soccer team wins district final 3–1. City stadium hosts matchup tomorrow night.</p>
+            </div>
+            <div class="sidebar-item">
+                <h3>Quick Read</h3>
+                <p>New farmers market opens on Main Street with organic produce and artisan goods.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

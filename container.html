@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                display: flex;
+                flex-direction:row;
+                outline: 1px solid black;
+                font-size: 30px;
+                height:200px;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                
+            }
+            .container>div{
+                outline: 1px dashed black;
+                flex-basis:100px;
+                height:100px;
+                
+            }
+            .container>div:nth-child(odd){
+                background-color: beige;
+            }
+            #box1, #box2, #box3, #box4, #box5, #box6{
+                align-items: center;
+                justify-items: center;
+             }     
+                  
+            #box1{
+                flex-grow:3;
+            }
+            #box2, #box3, #box4, #box5, #box6{
+                flex-grow:1;
+            }            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="box1"><p>1</p></div>
+            <div id="box2"><p>2</p></div>
+            <div id="box3"><p>3</p></div>
+            <div id="box4"><p>4</p></div>
+            <div id="box5"><p>5</p></div>
+            <div id="box6"><p>6</p></div>
+        </div>
+    </body>
+</html>

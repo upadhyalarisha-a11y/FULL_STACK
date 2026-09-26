@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Box</title>
+
+    <style>
+        .container {
+            display: grid;
+            height: 500px;
+            width: 500px;
+            grid-template-areas:
+                "box1 box1 box2"
+                "box1 box1 box3"
+                "box4 box5 box6";
+            outline: 1px dashed grey;
+        }
+        .container > div {
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="grid-area: box1;">1</div>
+        <div style="grid-area: box2;">2</div>
+        <div style="grid-area: box3;">3</div>
+        <div style="grid-area: box4;">4</div>
+        <div style="grid-area: box5;">5</div>
+        <div style="grid-area: box6;">6</div>
+    </div>
+</body>
+</html>

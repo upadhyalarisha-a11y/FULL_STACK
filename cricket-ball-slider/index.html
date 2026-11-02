@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Ball Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>🏏 Cricket Ball Slider</h1>
+            <p>Time your shot. Score big!</p>
+        </header>
+
+        <section class="scoreboard">
+            <div>
+                <span>RUNS</span>
+                <strong id="runs">0</strong>
+            </div>
+            <div>
+                <span>BALLS</span>
+                <strong id="balls">0</strong>
+            </div>
+            <div>
+                <span>MISSES</span>
+                <strong id="misses">0/3</strong>
+            </div>
+        </section>
+
+        <section class="pitch">
+            <div class="pitch-label">THE PITCH</div>
+
+            <div class="track" id="track">
+                <div class="zone six">6</div>
+                <div class="zone four">4</div>
+                <div class="zone two">2</div>
+                <div class="zone one">1</div>
+                <div class="zone dot">0</div>
+
+                <div id="ball"></div>
+            </div>
+
+            <div class="zone-labels">
+                <span>6 RUNS</span>
+                <span>4 RUNS</span>
+                <span>2 RUNS</span>
+                <span>1 RUN</span>
+                <span>DOT</span>
+            </div>
+        </section>
+
+        <div class="result" id="result">
+            Press Start to begin!
+        </div>
+
+        <div class="controls">
+            <button id="hitBtn" disabled>🏏 HIT!</button>
+            <button id="startBtn">Start Game</button>
+        </div>
+
+        <p class="instructions">
+            Hit the ball while it is inside a scoring zone.<br>
+            You have 3 misses before the game ends.
+        </p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

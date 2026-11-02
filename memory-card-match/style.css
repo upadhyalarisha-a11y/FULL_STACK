@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #151b2e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #252e46;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+}
+
+h1 {
+    color: #65e6c4;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    font-size: 17px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.card {
+    height: 75px;
+    background: #394766;
+    border: 2px solid #526487;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.card:hover {
+    background: #465879;
+}
+
+.card.open {
+    background: #65e6c4;
+    color: #151b2e;
+}
+
+.card.matched {
+    background: #267c65;
+    border-color: #65e6c4;
+    cursor: default;
+}
+
+h3 {
+    color: #65e6c4;
+    margin: 22px 0;
+}
+
+button {
+    background: #65e6c4;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 380px) {
+    .card {
+        height: 62px;
+        font-size: 25px;
+    }
+}

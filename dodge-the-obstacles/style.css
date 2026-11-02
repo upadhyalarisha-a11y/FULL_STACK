@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111827;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 420px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 12px;
+    background: #263449;
+    border-radius: 10px;
+}
+
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #374151;
+    border: 4px solid #64748b;
+    border-radius: 12px;
+}
+
+.lane-line {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: repeating-linear-gradient(
+        to bottom,
+        white 0px,
+        white 25px,
+        transparent 25px,
+        transparent 50px
+    );
+    opacity: 0.5;
+}
+
+.line-one {
+    left: 33.33%;
+}
+
+.line-two {
+    left: 66.66%;
+}
+
+#player {
+    position: absolute;
+    bottom: 15px;
+    width: 33.33%;
+    text-align: center;
+    font-size: 42px;
+    transition: left 0.12s;
+}
+
+.obstacle {
+    position: absolute;
+    width: 33.33%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+#overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    z-index: 5;
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+p {
+    color: #cbd5e1;
+    font-size: 14px;
+}

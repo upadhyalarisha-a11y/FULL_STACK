@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Whack-a-Wicket | Arcade Game</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <header class="header">
+            <span class="game-tag">ARCADE CHALLENGE</span>
+
+            <h1>Whack-a-Wicket 🏏</h1>
+
+            <p>Catch the wicket before it disappears!</p>
+        </header>
+
+
+        <!-- Scoreboard -->
+
+        <section class="scoreboard">
+
+            <div class="stat-card">
+                <span class="stat-label">YOUR SCORE</span>
+                <span class="stat-value" id="score">0</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">TIME LEFT</span>
+                <span class="stat-value" id="timer">30</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">BEST SCORE</span>
+                <span class="stat-value" id="bestScore">0</span>
+            </div>
+
+        </section>
+
+
+        <!-- Game Instructions -->
+
+        <div class="game-info">
+            <span>🎯 Hit the glowing wicket!</span>
+            <span>⏱ 800ms spawn interval</span>
+        </div>
+
+
+        <!-- Game Grid -->
+
+        <section class="game-board" id="gameGrid">
+
+            <!-- JavaScript will create 9 cells here -->
+
+        </section>
+
+
+        <!-- Game Status -->
+
+        <div class="status-message" id="message" aria-live="polite">
+            Ready to play? Press Start Game!
+        </div>
+
+
+        <!-- Controls -->
+
+        <div class="controls">
+
+            <button id="startBtn" class="start-btn">
+                ▶ Start Game
+            </button>
+
+            <button id="restartBtn" class="restart-btn">
+                ↻ Reset
+            </button>
+
+        </div>
+
+
+        <footer>
+            WHACK FAST. SCORE BIG. 🏆
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

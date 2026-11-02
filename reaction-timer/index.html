@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reaction Timer | Speed Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <span class="tag">REFLEX TRAINING</span>
+
+            <h1>Reaction Timer <span>⚡</span></h1>
+
+            <p>How fast are your reflexes?</p>
+        </header>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>YOUR LAST TIME</span>
+                <h2 id="lastTime">-- ms</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>PERSONAL BEST</span>
+                <h2 id="bestTime">-- ms</h2>
+            </div>
+
+        </section>
+
+
+        <!-- Main Reaction Area -->
+
+        <section class="reaction-area" id="reactionArea">
+
+            <div class="reaction-content">
+
+                <div class="reaction-icon" id="reactionIcon">
+                    ⚡
+                </div>
+
+                <h2 id="reactionTitle">Ready to test your reflexes?</h2>
+
+                <p id="reactionMessage">
+                    Press the button below to begin.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Controls -->
+
+        <div class="controls">
+
+            <button id="startBtn" class="start-btn">
+                Start Test
+            </button>
+
+            <button id="resetBtn" class="reset-btn">
+                Reset
+            </button>
+
+        </div>
+
+
+        <!-- Instructions -->
+
+        <section class="instructions">
+
+            <h3>HOW TO PLAY</h3>
+
+            <div class="instruction">
+                <span>01</span>
+                <p>Click Start Test.</p>
+            </div>
+
+            <div class="instruction">
+                <span>02</span>
+                <p>Wait until the screen turns green.</p>
+            </div>
+
+            <div class="instruction">
+                <span>03</span>
+                <p>Click as quickly as possible!</p>
+            </div>
+
+        </section>
+
+
+        <footer>
+            TEST YOUR LIMITS. BEAT YOUR BEST.
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

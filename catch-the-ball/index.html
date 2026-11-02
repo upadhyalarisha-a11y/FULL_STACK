@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Ball</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Catch the Ball 🏀</h1>
+        <p>Move your basket and catch the falling balls!</p>
+
+        <div class="scoreboard">
+            <span>Score: <b id="score">0</b></span>
+            <span>Misses: <b id="misses">0</b> / 3</span>
+        </div>
+
+        <div id="gameArea">
+            <div id="basket">🧺</div>
+            <div id="overlay">
+                <h2 id="gameMessage">Ready to Play?</h2>
+                <button id="startBtn">Start Game</button>
+            </div>
+        </div>
+
+        <p class="instructions">
+            Use ← → arrow keys or A / D to move.
+        </p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

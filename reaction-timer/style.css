@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+
+    background: #101827;
+
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+}
+
+
+/* Main Container */
+
+.container {
+    width: 100%;
+
+    max-width: 650px;
+
+    background: #1b2739;
+
+    border: 1px solid #344258;
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Header */
+
+.tag {
+    display: inline-block;
+
+    background: rgba(0, 212, 255, 0.1);
+
+    color: #00d4ff;
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 34px;
+
+    margin: 15px 0 8px;
+}
+
+h1 span {
+    color: #00d4ff;
+}
+
+header p {
+    color: #9ba9bc;
+
+    font-size: 14px;
+}
+
+
+/* Statistics */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: #26364b;
+
+    border: 1px solid #394b63;
+
+    padding: 18px;
+
+    border-radius: 14px;
+}
+
+.stat-card span {
+    color: #9ba9bc;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.stat-card h2 {
+    font-size: 27px;
+
+    margin-top: 8px;
+
+    color: #00d4ff;
+}
+
+
+/* Reaction Area */
+
+.reaction-area {
+    min-height: 260px;
+
+    background: #26364b;
+
+    border: 2px solid #394b63;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.reaction-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.reaction-icon {
+    font-size: 48px;
+}
+
+.reaction-area h2 {
+    font-size: 22px;
+}
+
+.reaction-area p {
+    color: #aab8ca;
+
+    font-size: 14px;
+}
+
+
+/* Waiting State */
+
+.reaction-area.waiting {
+    background: #9b3138;
+
+    border-color: #ff6b72;
+}
+
+.reaction-area.waiting .reaction-icon {
+    animation: pulse 1s infinite;
+}
+
+
+/* Green State */
+
+.reaction-area.go {
+    background: #087c4c;
+
+    border-color: #42e8a5;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 35px rgba(66, 232, 165, 0.2);
+}
+
+.reaction-area.go h2,
+.reaction-area.go p {
+    color: white;
+}
+
+
+/* Result State */
+
+.reaction-area.result {
+    background: #164b58;
+
+    border-color: #00d4ff;
+}
+
+
+/* Error State */
+
+.reaction-area.early {
+    background: #713b27;
+
+    border-color: #ffad66;
+}
+
+
+/* Buttons */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 22px 0 30px;
+}
+
+button {
+    padding: 13px 28px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.start-btn {
+    background: #00d4ff;
+
+    color: #102033;
+}
+
+.start-btn:hover {
+    background: #55e2ff;
+
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: #344258;
+
+    color: white;
+}
+
+.reset-btn:hover {
+    background: #455a75;
+}
+
+button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* Instructions */
+
+.instructions {
+    text-align: left;
+
+    background: #26364b;
+
+    border-radius: 14px;
+
+    padding: 20px;
+}
+
+.instructions h3 {
+    font-size: 12px;
+
+    color: #00d4ff;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.instruction {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 12px 0;
+}
+
+.instruction span {
+    color: #42e8a5;
+
+    font-weight: 800;
+
+    font-size: 13px;
+}
+
+.instruction p {
+    color: #c0cad8;
+
+    font-size: 13px;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #718198;
+}
+
+
+/* Animation */
+
+@keyframes pulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .reaction-area {
+        min-height: 220px;
+    }
+
+}

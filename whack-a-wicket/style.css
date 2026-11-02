@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #101827;
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 560px;
+
+    background: #1b2739;
+
+    border: 1px solid #344258;
+
+    border-radius: 24px;
+
+    padding: 32px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Header */
+
+.game-tag {
+    display: inline-block;
+
+    color: #42e8a5;
+
+    background: rgba(66, 232, 165, 0.1);
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 16px 0 8px;
+}
+
+.header p {
+    color: #9ba9bc;
+    font-size: 14px;
+}
+
+
+/* Scoreboard */
+
+.scoreboard {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 30px 0 22px;
+}
+
+.stat-card {
+    background: #26364b;
+
+    border: 1px solid #394b63;
+
+    border-radius: 14px;
+
+    padding: 16px 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.stat-label {
+    font-size: 10px;
+
+    color: #9ba9bc;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+}
+
+.stat-value {
+    font-size: 27px;
+
+    font-weight: 800;
+
+    color: #42e8a5;
+}
+
+
+/* Game information */
+
+.game-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    color: #aab8ca;
+
+    font-size: 12px;
+
+    margin-bottom: 16px;
+}
+
+
+/* Game Board */
+
+.game-board {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    background: #142033;
+
+    padding: 14px;
+
+    border-radius: 18px;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+
+    background: #26364b;
+
+    border: 2px solid #394b63;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    cursor: pointer;
+
+    transition: background 0.15s, transform 0.15s;
+
+    user-select: none;
+}
+
+.cell:hover {
+    background: #30435c;
+}
+
+
+/* Active Wicket */
+
+.cell.active {
+    background: #174a3c;
+
+    border-color: #42e8a5;
+
+    box-shadow: 0 0 20px rgba(66, 232, 165, 0.25);
+
+    transform: scale(1.04);
+}
+
+.cell.hit {
+    background: #315e43;
+
+    border-color: #a3ffb0;
+}
+
+
+/* Message */
+
+.status-message {
+    min-height: 28px;
+
+    margin: 22px 0;
+
+    color: #42e8a5;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* Buttons */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 13px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.start-btn {
+    background: #42e8a5;
+
+    color: #10251e;
+}
+
+.start-btn:hover {
+    background: #6dffc0;
+
+    transform: translateY(-2px);
+}
+
+.restart-btn {
+    background: #344258;
+
+    color: white;
+}
+
+.restart-btn:hover {
+    background: #455a75;
+}
+
+button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 28px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #718198;
+}
+
+
+/* Responsive */
+
+@media (max-width: 450px) {
+
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .cell {
+        font-size: 30px;
+    }
+
+}

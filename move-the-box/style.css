@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #1f2937;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #38bdf8;
+}
+
+p {
+    color: #cbd5e1;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+#status {
+    color: #4ade80;
+}
+
+#gameArea {
+    width: 100%;
+    height: 320px;
+    background: #0f172a;
+    border: 2px solid #475569;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+#player, #goal {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border-radius: 8px;
+}
+
+#player {
+    background: #38bdf8;
+    left: 0;
+    top: 0;
+    transition: left 0.07s, top 0.07s;
+}
+
+#goal {
+    background: #4ade80;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0 0 15px #4ade80;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}

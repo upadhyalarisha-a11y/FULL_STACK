@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="game-container">
+        <header>
+            <div>
+                <h1>🐍 Snake</h1>
+                <p class="subtitle">Eat. Grow. Survive.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span>Score</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Best</span>
+                    <strong id="bestScore">0</strong>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-info">
+            <span id="level">Level 1</span>
+            <span id="status">READY</span>
+        </div>
+
+        <div id="gameArea">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+            <div id="overlay">
+                <div class="overlay-content">
+                    <div id="overlayIcon">🐍</div>
+                    <h2 id="message">Snake Game</h2>
+                    <p id="description">Eat the food and avoid hitting yourself!</p>
+                    <button id="startBtn">Start Game</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-buttons">
+            <button id="pauseBtn" disabled>⏸ Pause</button>
+            <button id="restartBtn">↻ Restart</button>
+        </div>
+
+        <div class="instructions">
+            <p>⌨️ Arrow Keys / WASD to move</p>
+            <p>⏸ Press SPACE to pause</p>
+        </div>
+
+        <div class="mobile-controls">
+            <button data-direction="up">▲</button>
+            <div class="horizontal-controls">
+                <button data-direction="left">◀</button>
+                <button data-direction="down">▼</button>
+                <button data-direction="right">▶</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
